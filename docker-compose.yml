@@ -1,0 +1,38 @@
+services:
+    accounts:
+        image: "janagarajs/accounts:v1"
+        ports:
+            - "8080:8080"
+        container_name: accounts-ms
+        deploy:
+            resources:
+                limits:
+                    memory: 700m
+        networks:
+            - "jbank"
+    loans:
+        image: "janagarajs/loans:v1"
+        ports:
+            - "8090:8090"
+        container_name: loans-ms
+        deploy:
+            resources:
+                limits:
+                    memory: 700m
+        networks:
+            - "jbank"
+    cards:
+        image: "janagarajs/cards:v1"
+        ports:
+            - "9000:9000"
+        container_name: cards-ms
+        deploy:
+            resources:
+                limits:
+                    memory: 700m
+        networks:
+            - "jbank"
+
+networks:
+    jbank:
+        driver: "bridge"

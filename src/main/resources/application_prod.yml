@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0.0"
+
+accounts:
+  message: "Welcome to JBank Accounts Prod Environment"
+  contactDetails:
+    name: "Production Lead"
+    email: "prodlead@jbank.com"
+  onCallSupport:
+    - (224)123-4567
+    - (224)123-4568

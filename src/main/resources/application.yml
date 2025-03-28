@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: accounts
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:accounts
+    username: acc
+    password: acc
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "qa"
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
+build:
+  version: "3.0.0"
+
+accounts:
+  message: "Welcome to JBank Accounts Service"
+  contactDetails:
+    name: "Janagaraj - Developer"
+    email: "janagarajs@gmail.com"
+  onCallSupport:
+    - (224)123-4567
+    - (224)123-4568

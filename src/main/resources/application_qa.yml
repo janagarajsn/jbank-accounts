@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0.0"
+
+accounts:
+  message: "Welcome to JBank Accounts QA Environment"
+  contactDetails:
+    name: "QA Lead"
+    email: "qalead@jbank.com"
+  onCallSupport:
+    - (224)123-4567
+    - (224)123-4568
