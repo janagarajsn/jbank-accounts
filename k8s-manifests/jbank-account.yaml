@@ -17,15 +17,26 @@ spec:
     spec:
       containers:
         - name: jbank-account-deployment
-          image: janagarajs/jbank-account:v6
+          image: janagarajs/jbank-account:v7
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
               protocol: TCP
           env:
-            - name: MYSQL_HOST
-              value: "mysql-db"
-            - name: MYSQL_PORT
-              value: "3306"
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: account-cm
+                  key: db-url
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: account-cm
+                  key: db-user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: account-secret
+                  key: db-password
       restartPolicy: Always
       
