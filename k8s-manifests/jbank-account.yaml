@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jbank-account-deployment
+  labels:
+    app: jbank-account-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jbank-account-deployment
+  template:
+    metadata:
+      name: jbank-account-deployment
+      labels:
+        app: jbank-account-deployment
+    spec:
+      containers:
+        - name: jbank-account-deployment
+          image: janagarajs/jbank-account:v6
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: MYSQL_HOST
+              value: "mysql-db"
+            - name: MYSQL_PORT
+              value: "3306"
+      restartPolicy: Always
+      

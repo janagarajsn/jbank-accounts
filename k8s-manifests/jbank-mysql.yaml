@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jbank-mysql
+  labels:
+    app: jbank-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jbank-mysql
+  template:
+    metadata:
+      name: jbank-mysql
+      labels:
+        app: jbank-mysql
+    spec:
+      containers:
+        - name: jbank-mysql
+          image: janagarajs/jbank-mysql:v2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+      restartPolicy: Always
+      
