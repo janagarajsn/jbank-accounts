@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: jbank-mysql
-          image: janagarajs/jbank-mysql:v2
+          image: janagarajs/jbank-mysql:v3
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306

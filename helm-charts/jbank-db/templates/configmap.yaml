@@ -1,0 +1,11 @@
+# Helm template for K8s config map for account service
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ include "jbank-db.fullname" . }}-config
+    labels:
+      {{- include "jbank-db.labels" . | nindent 4 }}
+data:
+{{- range $key, $value := .Values.config }}
+  {{ $key }}: {{ $value | quote }}
+{{- end }}

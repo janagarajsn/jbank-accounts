@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Helm charts ###
+/helm-charts/account/account*.tgz
+/helm-charts/jbank-db/jbank-db*.tgz
