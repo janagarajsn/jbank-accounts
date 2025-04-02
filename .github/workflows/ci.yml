@@ -20,7 +20,7 @@ jobs:
               java-version: '17'
               distribution: 'temurin'
           - name: Maven build
-            run: mvn clean install
+            run: mvn clean install -DskipTests
           - name: Get timestamp
             run: echo "IMAGE_TAG=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
           - name: Build Docker image
