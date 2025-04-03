@@ -136,7 +136,7 @@ affinity: {}
 
 # Additional configs
 config:
-  db-url: "jdbc:mysql://host.docker.internal:31898/accounts"
+  db-url: "jdbc:mysql://jbankmysql.janagarajs.in:3306/accounts"
   db-user: "accounts"
 
 # Secrets
